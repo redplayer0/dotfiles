@@ -1,0 +1,160 @@
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 100
+    lines: 30
+  position:
+    x: 320
+    y: 160
+
+  # Window padding (changes require restart)
+  padding:
+    x: 5
+    y: 5
+  dynamic_padding: false
+  startup_mode: Windowed
+  title: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
+  #gtk_theme_variant: None
+#scrolling:
+  #history: 10000
+  #multiplier: 3
+
+font:
+  normal:
+    family: "Blex Mono Nerd Font"
+    style: Regular
+  #bold:
+    #family: monospace
+    #style: Bold
+  #italic:
+    #family: monospace
+    #style: Italic
+  #bold_italic:
+    #family: monospace
+    #style: Bold Italic
+  size: 7.5
+  # offset:
+  #   x: 0
+  #   y: 0
+  # glyph_offset:
+  #   x: 0
+  #   y: 0
+
+background.opacity: 0.90
+
+window.dynamic_title: true
+
+#cursor:
+  # Cursor style
+  #
+  # Values for `style`:
+  #   - ▇ Block - _ Underline
+  #   - | Beam
+  #style: Block
+  #unfocused_hollow: true
+  #thickness: 0.15
+
+live_config_reload: true
+
+shell:
+  program: /bin/bash 
+  # args:
+    # - -i
+    # - -c
+    # - "tmux attach || tmux"
+
+#working_directory: None
+
+# Colors
+schemes:
+  nightfox: &nightfox
+    primary:
+      background: '0x192330'
+      foreground: '0xcdcecf'
+  # Normal colors
+    normal:
+      black:   '0x393b44'
+      red:     '0xc94f6d'
+      green:   '0x81b29a'
+      yellow:  '0xdbc074'
+      blue:    '0x719cd6'
+      magenta: '0x9d79d6'
+      cyan:    '0x63cdcf'
+      white:   '0xdfdfe0'
+    # Bright colors
+    bright:
+      black:   '0x575860'
+      red:     '0xd16983'
+      green:   '0x8ebaa4'
+      yellow:  '0xe0c989'
+      blue:    '0x86abdc'
+      magenta: '0xbaa1e2'
+      cyan:    '0x7ad4d6'
+      white:   '0xe4e4e5'
+    indexed_colors:
+      - { index: 16, color: '0xf4a261' }
+      - { index: 17, color: '0xd67ad2' }
+
+  duskfox: &duskfox
+    primary:
+      background: '0x232136'
+      foreground: '0xe0def4'
+    # Normal colors
+    normal:
+      black:   '0x393552'
+      red:     '0xeb6f92'
+      green:   '0xa3be8c'
+      yellow:  '0xf6c177'
+      blue:    '0x569fba'
+      magenta: '0xc4a7e7'
+      cyan:    '0x9ccfd8'
+      white:   '0xe0def4'
+    # Bright colors
+    bright:
+      black:   '0x47407d'
+      red:     '0xf083a2'
+      green:   '0xb1d196'
+      yellow:  '0xf9cb8c'
+      blue:    '0x65b1cd'
+      magenta: '0xccb1ed'
+      cyan:    '0xa6dae3'
+      white:   '0xe2e0f7'
+    indexed_colors:
+      - { index: 16, color: '0xea9a97' }
+      - { index: 17, color: '0xeb98c3' }
+
+  nordfox: &nordfox
+    primary:
+      background: '0x2e3440'
+      foreground: '0xcdcecf'
+    # Normal colors
+    normal:
+      black:   '0x3b4252'
+      red:     '0xbf616a'
+      green:   '0xa3be8c'
+      yellow:  '0xebcb8b'
+      blue:    '0x81a1c1'
+      magenta: '0xb48ead'
+      cyan:    '0x88c0d0'
+      white:   '0xe5e9f0'
+    # Bright colors
+    bright:
+      black:   '0x465780'
+      red:     '0xd06f79'
+      green:   '0xb1d196'
+      yellow:  '0xf0d399'
+      blue:    '0x8cafd2'
+      magenta: '0xc895bf'
+      cyan:    '0x93ccdc'
+      white:   '0xe7ecf4'
+    indexed_colors:
+      - { index: 16, color: '0xc9826b' }
+      - { index: 17, color: '0xbf88bc' }
+
+# Acive colorscheme
+colors: *nightfox
