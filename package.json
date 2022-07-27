@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@prettier/plugin-ruby": "^3.1.2",
+    "@tailwindcss/language-server": "^0.0.7",
+    "bash-language-server": "^3.0.5",
+    "eslint": "^8.19.0",
+    "prettier": "^2.7.1",
+    "prettier-eslint": "^15.0.1",
+    "tailwindcss": "^3.1.6",
+    "typescript": "^4.7.4",
+    "typescript-language-server": "^0.11.2",
+    "vscode-langservers-extracted": "^4.4.0"
+  }
+}
