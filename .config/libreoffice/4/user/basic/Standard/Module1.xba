@@ -27,4 +27,11 @@ dispatcher.executeDispatch(document, &quot;.uno:InsertBreak&quot;, &quot;&quot;,
 
 end sub
 
+Function MYCUBE( c1 )
+    MYCUBE = c1 * c1 * c1
+End Function
+
+Function GET_NOT_EMPTY(day as Range, names as Range)
+	for cell in day
+End Function
 </script:module>

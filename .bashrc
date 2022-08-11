@@ -24,6 +24,7 @@ alias vim="nvim"
 alias r="ranger"
 alias rc="ranger $HOME/.config"
 alias steam2="GDK_SCALE=2 steam"
+alias feh="feh -d"
 
 # quick edits
 alias profile="vim $HOME/.bash_profile"
