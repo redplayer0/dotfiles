@@ -68,6 +68,7 @@ alias cargo-update="cargo-install-update install-update --all"
 alias cat="bat -p"
 alias ls="clear;exa -laa --group-directories-first"
 alias f='sk --select-1 --delimiter=/ --with-nth=-2..-1 --preview "bat -p {}" --bind "enter:execute(nvim {})"' 
+alias dc="getdeclaration"
 
 shopt -s histappend
 
