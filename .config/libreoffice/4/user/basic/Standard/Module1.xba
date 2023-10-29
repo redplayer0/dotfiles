@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Module1" script:language="StarBasic" script:moduleType="normal">REM  *****  BASIC  *****
+
+
+sub NEW_PART
+rem ----------------------------------------------------------------------
+rem define variables
+dim document   as object
+dim dispatcher as object
+rem ----------------------------------------------------------------------
+rem get access to the document
+document   = ThisComponent.CurrentController.Frame
+dispatcher = createUnoService(&quot;com.sun.star.frame.DispatchHelper&quot;)
+
+rem ----------------------------------------------------------------------
+dim args1(1) as new com.sun.star.beans.PropertyValue
+args1(0).Name = &quot;Param&quot;
+args1(0).Value = InputBox(&quot;Name for new part&quot;)
+args1(1).Name = &quot;Family&quot;
+args1(1).Value = 8
+
+dispatcher.executeDispatch(document, &quot;.uno:StyleNewByExample&quot;, &quot;&quot;, 0, args1())
+
+rem ----------------------------------------------------------------------
+dispatcher.executeDispatch(document, &quot;.uno:InsertBreak&quot;, &quot;&quot;, 0, Array())
+
+end sub
+
+Function MYCUBE( c1 )
+    MYCUBE = c1 * c1 * c1
+End Function
+
+rem Function GET_NOT_EMPTY(day as Range, names as Range)
+rem 	for cell in day
+rem End Function
+</script:module>

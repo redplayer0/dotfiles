@@ -1,0 +1,44 @@
+theme = "rose_pine"
+
+# At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
+[keys.normal]
+C-s = ":w"
+g = { a = "code_action" }
+f = { m = ":format" }
+tab = ":buffer-next"
+space = { x = ":buffer-close", c = ":config-open", C = ":config-reload"}
+J = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+K = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+
+[keys.insert.j]
+k = "normal_mode"
+l = "move_char_right"
+h = "move_char_left"
+o = ["normal_mode", "open_below"]
+O = ["normal_mode", "open_above"]
+
+[editor]
+bufferline = "always"
+completion-replace = true
+
+[editor.lsp]
+display-messages = true
+
+[editor.whitespace.render]
+space = "all"
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 2
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+[editor.gutters.line-numbers]
+min-width = 3
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 80
+wrap-indicator = ""  # set wrap-indicator to "" to hide it

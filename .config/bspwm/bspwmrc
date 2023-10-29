@@ -1,0 +1,45 @@
+#!/bin/sh
+
+lxsession & 
+dunst &
+udiskie &
+pgrep -x sxhkd > /dev/null || sxhkd &
+setxkbmap -layout us,gr -option grp:alt_shift_toggle
+xsetroot -cursor_name left_ptr &
+polybar &
+feh --bg-scale --no-fehbg --randomize "$HOME/media/images/wallpapers/"
+picom -b
+
+# bspc monitor -d term web code files doc pdf utils chat games
+bspc monitor -d               󰭹  󱎓
+
+bspc config border_width         2
+bspc config window_gap           12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   false
+bspc config gapless_monocle      true
+
+bspc config focus_follows_pointer       true
+
+# Rosé pine 
+bspc config focused_border_color "#9ccfd8"
+bspc config normal_border_color "#6e6a86"
+
+# rules
+bspc rule -a Nemo desktop='^3' follow=on
+# why the fuck Soffice works for libreoffice???
+bspc rule -a Soffice desktop='^5' follow=on
+bspc rule -a Xreader desktop='^6' follow=on
+bspc rule -a firefox desktop='^2' follow=on
+bspc rule -a KeePassXC desktop='^7' state=floating follow=on
+bspc rule -a terminal64.exe desktop='^7' follow=on
+bspc rule -a ViberPC desktop='^8' state=floating follow=on
+bspc rule -a discord desktop='^8' state=floating follow=on
+bspc rule -a Steam desktop='^9' follow=on
+bspc rule -a Tk state=floating follow=on
+bspc rule -a transmission-gtk desktop='^7' follow=on state=floating
+bspc rule -a mplayer2 state=floating
+bspc rule -a Desmume state=floating
+# bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off

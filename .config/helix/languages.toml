@@ -1,0 +1,22 @@
+[language-server.rufflsp]
+command = "ruff-lsp"
+
+[[language]]
+name = "python"
+auto-format = true
+injection-regex = "(python|html)"
+language-servers = [
+  { name = "rufflsp", only-features = [ "code-action", "format" ] },
+  "pylsp"
+]
+
+[language-server.emmet-ls]
+command = "bunx"
+args = ["emmet-ls", "--stdio"]
+
+[[language]]
+name = "html"
+language-servers = [
+  "vscode-html-language-server",
+  "emmet-ls"
+]
