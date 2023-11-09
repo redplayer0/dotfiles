@@ -9,6 +9,11 @@ tab = ":buffer-next"
 space = { x = ":buffer-close", c = ":config-open", C = ":config-reload"}
 J = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 K = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+H = "jump_view_left"
+L = "jump_view_right"
+
+[keys.insert]
+c = { c = "completion" }
 
 [keys.insert.j]
 k = "normal_mode"
@@ -19,7 +24,7 @@ O = ["normal_mode", "open_above"]
 
 [editor]
 bufferline = "always"
-completion-replace = true
+completion-replace = false
 
 [editor.lsp]
 display-messages = true

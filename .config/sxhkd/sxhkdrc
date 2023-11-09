@@ -50,14 +50,13 @@ XF86AudioRaiseVolume
 # random bg
 super + r
 	feh --bg-scale --no-fehbg --randomize $HOME/media/images/wallpapers        
-
 # create a note
 super + z
 	$HOME/.local/bin/ztnote.sh
 
 # create a note
-super + l
-	$HOME/.local/bin/ztlink.sh
+# super + l
+# 	$HOME/.local/bin/ztlink.sh
 
 #
 # bspwm hotkeys
