@@ -4,13 +4,19 @@ theme = "rose_pine"
 [keys.normal]
 C-s = ":w"
 g = { a = "code_action" }
-f = { m = ":format" }
 tab = ":buffer-next"
-space = { x = ":buffer-close", c = ":config-open", C = ":config-reload"}
+S-tab = ":buffer-previous"
 J = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 K = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 H = "jump_view_left"
 L = "jump_view_right"
+
+[keys.normal.space]
+f = { m = ":format" }
+x = ":buffer-close"
+c = ":config-open"
+C = ":config-reload"
+# J = ["goto_line",]
 
 [keys.insert]
 c = { c = "completion" }
@@ -26,8 +32,14 @@ O = ["normal_mode", "open_above"]
 bufferline = "always"
 completion-replace = false
 
+[editor.cursor-shape]
+insert = "bar"
+
 [editor.lsp]
 display-messages = true
+
+[editor.smart-tab]
+enable = false
 
 [editor.whitespace.render]
 space = "all"

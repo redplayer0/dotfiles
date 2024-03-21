@@ -5,32 +5,6 @@
 
 [[ $- != *i* ]] && return
 
-colors() {
-	local fgc bgc vals seq0
-
-	printf "Color escapes are %s\n" '\e[${value};...;${value}m'
-	printf "Values 30..37 are \e[33mforeground colors\e[m\n"
-	printf "Values 40..47 are \e[43mbackground colors\e[m\n"
-	printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
-
-	# foreground colors
-	for fgc in {30..37}; do
-		# background colors
-		for bgc in {40..47}; do
-			fgc=${fgc#37} # white
-			bgc=${bgc#40} # black
-
-			vals="${fgc:+$fgc;}${bgc}"
-			vals=${vals%%;}
-
-			seq0="${vals:+\e[${vals}m}"
-			printf "  %-9s" "${seq0:-(default)}"
-			printf " ${seq0}TEXT\e[m"
-			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
-		done
-		echo; echo
-	done
-}
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
@@ -108,6 +82,7 @@ ex ()
 }
 
 # aliases
+alias x="startx"
 alias date="date +%Y%m%d%H%M%S"
 alias c="clear"
 alias ..="cd ./.."
@@ -120,6 +95,8 @@ alias cal="cal --monday"
 alias venv="source bin/activate"
 
 # programs
+alias nv="nvim"
+alias r="ranger"
 alias pluto='julia -e "import Pluto;Pluto.run()"'
 alias hx="helix"
 alias o="xdg-open"
@@ -132,7 +109,7 @@ alias profile="$EDITOR $HOME/.bash_profile"
 alias bashrc="$EDITOR $HOME/.bashrc"
 alias term="$EDITOR $HOME/.config/alacritty/alacritty.yml"
 alias xinitrc="$EDITOR $HOME/.xinitrc"
-# alias rc="ranger $HOME/.config"
+alias rc="ranger $HOME/.config"
 alias sxrc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
 alias bsprc="$EDITOR $HOME/.config/bspwm/bspwmrc"
 
@@ -188,8 +165,15 @@ export MANPAGER="$PAGER"
 export BEMENU_SCALE=2
 export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -W 0.5 --tb #191724 --tf #e0def4 --bdr #9ccfd8 --nb #191724 --nf #6d6a86 --af #6d6a86 --ab #191724 --hb #1f1d2e --hf #e0def4 --fb #191724 --fn 'mononoki Nerd Font 11'"
 
+# dpi
+# export QT_AUTO_SCREEN_SCALE_FACTOR=0
+# export QT_SCREEN_SCALE_FACTORS=2 
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
+
 # path
 export PATH=$PATH:${HOME}/.local/bin
+export PATH=$PATH:${HOME}/.dotnet/tools
 # export PATH=$PATH:${HOME}/node_modules/.bin
 # export PATH=$PATH:${HOME}/.nimble/bin
 
@@ -202,7 +186,6 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-
 # pnpm end
 
 # bun

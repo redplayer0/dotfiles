@@ -20,3 +20,33 @@ language-servers = [
   "vscode-html-language-server",
   "emmet-ls"
 ]
+
+[[language]]
+name = "jsx"
+language-servers = [
+  "typescript-language-server",
+  "emmet-ls"
+]
+
+[language-server.sqls]
+command = "bunx"
+args = [
+  "sql-language-server",
+  "up",
+  "--method",
+  "stdio"
+]
+
+[[language]]
+name = "sql"
+language-servers = ["sqls"]
+
+[[language]]
+name = "c-sharp"
+scope = "source.csharp"
+injection-regex = "c-?sharp"
+file-types = ["cs", "csx", "cake"]
+roots = ["sln", "csproj"]
+comment-token = "//"
+indent = { tab-width = 4, unit = "\t" }
+language-servers = [ "csharp-ls" ]
