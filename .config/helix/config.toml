@@ -12,10 +12,11 @@ H = "jump_view_left"
 L = "jump_view_right"
 
 [keys.normal.space]
-f = { m = ":format" }
+f = { m = ":format", f = "file_picker" }
 x = ":buffer-close"
 c = ":config-open"
 C = ":config-reload"
+m = ["move_next_word_end", "search_selection"]
 # J = ["goto_line",]
 
 [keys.insert]
