@@ -1,0 +1,30 @@
+import = ["/home/red/.config/alacritty/themes/rose-pine.toml"]
+
+[font]
+size = 10
+offset.y = 2
+offset.x = 0
+
+[font.normal]
+family = "Mononoki Nerd Font"
+# family = "MesloLGS Nerd Font"
+# family = "BlexMono Nerd Font"
+# family = "DaddyTimeMono Nerd Font Mono"
+# family = "ZedMono Nerd Font Mono"
+# family = "EnvyCodeR Nerd Font Mono"
+# family = "Nerd Font Mono"
+# family = "Firacode Nerd Font Mono"
+# family = "GoMono Nerd Font Mono"
+# family = "IntoneMono Nerd Font Mono"
+# style = "Light"
+
+[window]
+opacity = 0.9
+
+[window.dimensions]
+columns = 80
+lines = 30
+
+[window.padding]
+x = 4
+y = 4

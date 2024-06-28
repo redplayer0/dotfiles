@@ -107,7 +107,7 @@ alias dl="yt-dlp -x --audio-format mp3 -o '/home/red/music/%(title)s.%(exts)s'"
 # quick edits
 alias profile="$EDITOR $HOME/.bash_profile"
 alias bashrc="$EDITOR $HOME/.bashrc"
-alias term="$EDITOR $HOME/.config/alacritty/alacritty.yml"
+alias term="$EDITOR $HOME/.config/alacritty/alacritty.toml"
 alias xinitrc="$EDITOR $HOME/.xinitrc"
 alias rc="ranger $HOME/.config"
 alias sxrc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
@@ -157,13 +157,16 @@ function edit() {
 }
 
 export TERMINAL=alacritty
-export EDITOR=helix
-export VISUAL=helix
+export EDITOR=nvim
+export VISUAL=nvim
 export BROWSER=firefox
 export PAGER="bat -p"
 export MANPAGER="$PAGER"
 export BEMENU_SCALE=2
 export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -W 0.5 --tb #191724 --tf #e0def4 --bdr #9ccfd8 --nb #191724 --nf #6d6a86 --af #6d6a86 --ab #191724 --hb #1f1d2e --hf #e0def4 --fb #191724 --fn 'mononoki Nerd Font 11'"
+
+
+# export JDTLS_JVM_ARGS="-javaagent:$HOME/code/hackathon/lombok.jar -Xbootclasspath/a:$HOME/code/hackathon/lombok.jar"
 
 # dpi
 # export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -174,7 +177,7 @@ export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -
 # path
 export PATH=$PATH:${HOME}/.local/bin
 export PATH=$PATH:${HOME}/.dotnet/tools
-# export PATH=$PATH:${HOME}/node_modules/.bin
+export PATH=$PATH:${HOME}/node_modules/.bin
 # export PATH=$PATH:${HOME}/.nimble/bin
 
 # evals
@@ -191,3 +194,7 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

@@ -1,14 +1,26 @@
-[language-server.rufflsp]
-command = "ruff-lsp"
-
 [[language]]
 name = "python"
 auto-format = true
-injection-regex = "(python|html)"
+injection-regex = "python"
 language-servers = [
-  { name = "rufflsp", only-features = [ "code-action", "format" ] },
+  {name = "rufflsp", only-features = ["code-action", "format"]},
   "pylsp"
 ]
+
+[language-server.rufflsp]
+command = "ruff-lsp"
+
+[language-server.pylsp]
+command = "pylsp"
+
+
+[language-server.pylsp.config.pylsp.plugins]
+pylsp_mypy.enabled = true
+pylsp_mypy.live_mode = true
+# pylsp_mypy.overrides = ["--ignore-missing-imports", true]
+# rope_completion.enabled = true
+# rope_autoimport.enabled = true
+# rope_autoimport.code_actions.enabled = false
 
 [language-server.emmet-ls]
 command = "bunx"
@@ -16,10 +28,12 @@ args = ["emmet-ls", "--stdio"]
 
 [[language]]
 name = "html"
+injection-regex = "html"
 language-servers = [
   "vscode-html-language-server",
   "emmet-ls"
 ]
+indent = { tab-width = 2, unit = "  " }
 
 [[language]]
 name = "jsx"
@@ -59,3 +73,7 @@ language-servers = [ "csharp-ls" ]
 # command = "julia"
 # timeout = 60
 # args = [ "--startup-file=no", "--history-file=no", "--quiet", "-e", "using LanguageServer; runserver()", ] 
+
+# [language.server.jdtls]
+# command = "jdtls"
+# args = ["--startup-file=no"] 

@@ -3,24 +3,21 @@ theme = "rose_pine"
 # At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
 [keys.normal]
 C-s = ":w"
-g = { a = "code_action" }
 tab = ":buffer-next"
 S-tab = ":buffer-previous"
 J = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 K = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 H = "jump_view_left"
 L = "jump_view_right"
+g = { a = "code_action" }
 
 [keys.normal.space]
-f = { m = ":format", f = "file_picker" }
+f = ":format"
+o = "file_picker"
 x = ":buffer-close"
 c = ":config-open"
 C = ":config-reload"
-m = ["move_next_word_end", "search_selection"]
-# J = ["goto_line",]
-
-[keys.insert]
-c = { c = "completion" }
+# m = ["move_next_word_end", "search_selection"]
 
 [keys.insert.j]
 k = "normal_mode"
@@ -32,6 +29,7 @@ O = ["normal_mode", "open_above"]
 [editor]
 bufferline = "always"
 completion-replace = false
+line-number = "relative"
 
 [editor.cursor-shape]
 insert = "bar"

@@ -45,5 +45,5 @@ bspc rule -a Tk state=floating follow=on
 bspc rule -a transmission-gtk desktop='^4' follow=on state=floating
 bspc rule -a mplayer2 state=floating
 bspc rule -a Desmume state=floating
-bspc rule -a python3.11 state=floating
+bspc rule -a python3.12 state=floating
 bspc rule -a Screenkey manage=off
