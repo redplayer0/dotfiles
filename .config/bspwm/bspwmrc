@@ -6,7 +6,8 @@ udiskie &
 pgrep -x sxhkd > /dev/null || sxhkd &
 setxkbmap -layout us,gr -option grp:alt_shift_toggle
 xsetroot -cursor_name left_ptr &
-feh --bg-scale --no-fehbg "$HOME/media/images/wallpapers/rose_pine_shape.png"
+# feh --bg-scale --no-fehbg "$HOME/media/images/wallpapers/rose_pine_shape.png"
+nitrogen --restore
 picom -b
 killall polybar
 polybar &

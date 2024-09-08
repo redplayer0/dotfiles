@@ -18,7 +18,7 @@ case ${TERM} in
 		;;
 esac
 
-alias dt="echo -e '[$(date +%D)] [$(date +%H:%M:%S)]'"
+# alias dt="echo -e '[$(date +%D)] [$(date +%H:%M:%S)]'"
 
 export PS1="[\u@\h \W]$ "
 # export PS1="[$(date +%H:%M:%S)] [\u@\h \W]$ "
@@ -93,8 +93,10 @@ alias t2="clear;tree -L 2"
 alias usb="ranger /run/media/red/"
 alias cal="cal --monday"
 alias venv="source bin/activate"
+alias sb="source ${HOME}/.bashrc"
 
 # programs
+alias vce="wine ${HOME}/.wine/drive_c/Program\ Files\ \(x86\)/VCE\ Exam\ Simulator\ Demo/player.exe"
 alias nv="nvim"
 alias r="ranger"
 alias pluto='julia -e "import Pluto;Pluto.run()"'
