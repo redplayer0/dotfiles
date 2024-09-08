@@ -104,7 +104,6 @@ alias hx="helix"
 alias o="xdg-open"
 alias feh="feh -d"
 alias dl="yt-dlp -x --audio-format mp3 -o '/home/red/music/%(title)s.%(exts)s'"
-# alias steam2="GDK_SCALE=2 steam"
 
 # quick edits
 alias profile="$EDITOR $HOME/.bash_profile"
@@ -146,7 +145,7 @@ alias config_update='config add -u; config commit -m"$(date) update"; config pus
 
 # rust alternatives
 alias cat="bat -p"
-alias ls="clear;exa -laa --group-directories-first"
+alias ls="clear;eza -laa --group-directories-first"
 alias f='sk --preview "bat -p {1}" --bind "enter:execute(nvim {1})"'
 alias zz='cd $(sk --preview "ls {1}")'
 
@@ -167,7 +166,6 @@ export MANPAGER="$PAGER"
 export BEMENU_SCALE=2
 export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -W 0.5 --tb #191724 --tf #e0def4 --bdr #9ccfd8 --nb #191724 --nf #6d6a86 --af #6d6a86 --ab #191724 --hb #1f1d2e --hf #e0def4 --fb #191724 --fn 'mononoki Nerd Font 11'"
 
-
 # export JDTLS_JVM_ARGS="-javaagent:$HOME/code/hackathon/lombok.jar -Xbootclasspath/a:$HOME/code/hackathon/lombok.jar"
 
 # dpi
@@ -178,25 +176,14 @@ export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -
 
 # path
 export PATH=$PATH:${HOME}/.local/bin
-export PATH=$PATH:${HOME}/.dotnet/tools
+export PATH=$PATH:${HOME}/.bin
+# export PATH=$PATH:${HOME}/.dotnet/tools
 export PATH=$PATH:${HOME}/node_modules/.bin
 # export PATH=$PATH:${HOME}/.nimble/bin
 
 # evals
 eval "$(zoxide init bash)"
 
-# pnpm
-export PNPM_HOME="/home/red/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
