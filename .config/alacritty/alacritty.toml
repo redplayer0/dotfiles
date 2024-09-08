@@ -1,7 +1,7 @@
 import = ["/home/red/.config/alacritty/themes/rose-pine.toml"]
 
 [font]
-size = 10
+size = 11
 offset.y = 2
 offset.x = 0
 
