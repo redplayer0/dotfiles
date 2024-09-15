@@ -164,7 +164,7 @@ export BROWSER=firefox
 export PAGER="bat -p"
 export MANPAGER="$PAGER"
 export BEMENU_SCALE=2
-export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -W 0.5 --tb #191724 --tf #e0def4 --bdr #9ccfd8 --nb #191724 --nf #6d6a86 --af #6d6a86 --ab #191724 --hb #1f1d2e --hf #e0def4 --fb #191724 --fn 'mononoki Nerd Font 11'"
+export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -W 0.5 --tb #191724 --tf #e0def4 --bdr #9ccfd8 --nb #191724 --nf #6d6a86 --af #6d6a86 --ab #191724 --hb #1f1d2e --hf #e0def4 --fb #191724 --fn 'mononoki Nerd Font 12'"
 
 # export JDTLS_JVM_ARGS="-javaagent:$HOME/code/hackathon/lombok.jar -Xbootclasspath/a:$HOME/code/hackathon/lombok.jar"
 

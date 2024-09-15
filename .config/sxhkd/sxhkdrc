@@ -94,8 +94,8 @@ super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 # go to specific desktop with letter
-super + {a,w,d}
-	bspc desktop -f ^{1,5,6}
+super + {a,w,d,x}
+	bspc desktop -f ^{1,5,6,7}
 
 #
 # preselect
