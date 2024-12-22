@@ -8,7 +8,7 @@ setxkbmap -layout us,gr -option grp:alt_shift_toggle
 xsetroot -cursor_name left_ptr &
 # feh --bg-scale --no-fehbg "$HOME/media/images/wallpapers/rose_pine_shape.png"
 nitrogen --restore
-picom -b
+# picom -b
 killall polybar
 polybar &
 brightness.sh -s
@@ -47,3 +47,4 @@ bspc rule -a transmission-gtk desktop='^4' follow=on state=floating
 bspc rule -a mplayer2 state=floating
 bspc rule -a python3.12 state=floating
 bspc rule -a Screenkey manage=off
+bspc rule -a sqlitebrowser focus=on state=floating

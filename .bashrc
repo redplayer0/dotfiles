@@ -169,7 +169,7 @@ export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -
 # export JDTLS_JVM_ARGS="-javaagent:$HOME/code/hackathon/lombok.jar -Xbootclasspath/a:$HOME/code/hackathon/lombok.jar"
 
 # dpi
-# export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # export QT_SCREEN_SCALE_FACTORS=2 
 # export GDK_SCALE=2
 # export GDK_DPI_SCALE=0.5
