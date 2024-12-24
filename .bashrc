@@ -158,8 +158,8 @@ function edit() {
 }
 
 export TERMINAL=alacritty
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=helix
+export VISUAL=helix
 export BROWSER=firefox
 export PAGER="bat -p"
 export MANPAGER="$PAGER"
