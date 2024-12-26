@@ -3,7 +3,8 @@ name = "python"
 auto-format = true
 injection-regex = "python"
 language-servers = [
-  {name = "rufflsp", only-features = ["code-action", "format"]},
+  # {name = "rufflsp", only-features = ["code-action", "format"]},
+  "rufflsp",
   "pylsp"
 ]
 
@@ -12,7 +13,6 @@ command = "ruff-lsp"
 
 [language-server.pylsp]
 command = "pylsp"
-
 
 [language-server.pylsp.config.pylsp.plugins]
 pylsp_mypy.enabled = true
