@@ -17,15 +17,17 @@ family = "Mononoki Nerd Font"
 # style = "Light"
 
 [window]
-opacity = 0.9
+# opacity = 0.9
+# decorations = ''
+
 
 [window.dimensions]
-columns = 80
+columns = 120
 lines = 30
 
 [window.padding]
-x = 4
-y = 4
+x = 8
+y = 8
 
 [general]
 import = ["/home/red/.config/alacritty/themes/rose-pine.toml"]

@@ -1,0 +1,18 @@
+(defcfg
+  process-unmapped-keys yes  
+)
+
+(defsrc
+  grv
+  caps
+)
+
+(defalias
+  rld (tap-hold 400 1000 grv lrld)
+  cap (tap-hold 200 200 esc lctl)
+)
+
+(deflayer base
+  @rld
+  @cap
+)

@@ -2,9 +2,7 @@
 # ~/.bashrc
 #
 
-
 [[ $- != *i* ]] && return
-
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
@@ -18,11 +16,37 @@ case ${TERM} in
 		;;
 esac
 
-# alias dt="echo -e '[$(date +%D)] [$(date +%H:%M:%S)]'"
+export COLORTERM=truecolor
+export TERM=tmux-256color
+export TERMINAL=ptyxis
+export EDITOR=helix
+export VISUAL=helix
+export BROWSER=firefox
+export PAGER="bat -p"
+export MANPAGER="$PAGER"
+export BEMENU_SCALE=2
+export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -W 0.5 --tb #191724 --tf #e0def4 --bdr #9ccfd8 --nb #191724 --nf #6d6a86 --af #6d6a86 --ab #191724 --hb #1f1d2e --hf #e0def4 --fb #191724 --fn 'mononoki Nerd Font 12'"
+
+# export JDTLS_JVM_ARGS="-javaagent:$HOME/code/hackathon/lombok.jar -Xbootclasspath/a:$HOME/code/hackathon/lombok.jar"
+
+# dpi
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export QT_SCREEN_SCALE_FACTORS=2 
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
+
+# path
+export PATH=$PATH:${HOME}/.local/bin
+export PATH=$PATH:${HOME}/.bin
+# export PATH=$PATH:${HOME}/.dotnet/tools
+export PATH=$PATH:${HOME}/node_modules/.bin
+# export PATH=$PATH:${HOME}/.nimble/bin
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
 
 export PS1="[\u@\h \W]$ "
-# export PS1="[$(date +%H:%M:%S)] [\u@\h \W]$ "
-# export PS1="[$(date +%D)] [$(date +%H:%M:%S)] [\u@\h \W]$ "
 
 use_color=true
 
@@ -33,13 +57,8 @@ use_color=true
 # globbing instead of external grep binary.
 safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
 match_lhs=""
-unset use_color safe_term match_lhs sh
 
-#alias cp="cp -i"                          # confirm before overwriting something
-#alias df='df -h'                          # human-readable sizes
-#alias free='free -m'                      # show sizes in MB
-#alias np='nano -w PKGBUILD'
-#alias more=less
+unset use_color safe_term match_lhs sh
 
 xhost +local:root > /dev/null 2>&1
 
@@ -51,14 +70,10 @@ shopt -s checkwinsize
 
 shopt -s expand_aliases
 
-# export QT_SELECT=4
-
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
-#
-# # ex - archive extractor
-# # usage: ex <file>
+# ex - archive extractor
 ex ()
 {
   if [ -f $1 ] ; then
@@ -81,6 +96,14 @@ ex ()
   fi
 }
 
+# edit - edit files in cwd
+function edit() {
+	file=$(config ls-tree -r main --name-only | fzf)
+	if [[ -f $file ]]
+	then
+	$EDITOR $file
+	fi
+}
 # aliases
 alias x="startx"
 alias date="date +%Y%m%d%H%M%S"
@@ -106,8 +129,8 @@ alias feh="feh -d"
 alias dl="yt-dlp -x --audio-format mp3 -o '/home/red/music/%(title)s.%(exts)s'"
 
 # quick edits
-alias profile="$EDITOR $HOME/.bash_profile"
-alias bashrc="$EDITOR $HOME/.bashrc"
+alias profile="${EDITOR} ${HOME}/.bash_profile"
+alias bashrc="${EDITOR} ${HOME}/.bashrc"
 alias term="$EDITOR $HOME/.config/alacritty/alacritty.toml"
 alias xinitrc="$EDITOR $HOME/.xinitrc"
 alias rc="ranger $HOME/.config"
@@ -149,41 +172,7 @@ alias ls="clear;eza -laa --group-directories-first"
 alias f='sk --preview "bat -p {1}" --bind "enter:execute(nvim {1})"'
 alias zz='cd $(sk --preview "ls {1}")'
 
-function edit() {
-	file=$(config ls-tree -r main --name-only | fzf)
-	if [[ -f $file ]]
-	then
-	$EDITOR $file
-	fi
-}
 
-export TERMINAL=alacritty
-export EDITOR=helix
-export VISUAL=helix
-export BROWSER=firefox
-export PAGER="bat -p"
-export MANPAGER="$PAGER"
-export BEMENU_SCALE=2
-export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -W 0.5 --tb #191724 --tf #e0def4 --bdr #9ccfd8 --nb #191724 --nf #6d6a86 --af #6d6a86 --ab #191724 --hb #1f1d2e --hf #e0def4 --fb #191724 --fn 'mononoki Nerd Font 12'"
-
-# export JDTLS_JVM_ARGS="-javaagent:$HOME/code/hackathon/lombok.jar -Xbootclasspath/a:$HOME/code/hackathon/lombok.jar"
-
-# dpi
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-# export QT_SCREEN_SCALE_FACTORS=2 
-# export GDK_SCALE=2
-# export GDK_DPI_SCALE=0.5
-
-# path
-export PATH=$PATH:${HOME}/.local/bin
-export PATH=$PATH:${HOME}/.bin
-# export PATH=$PATH:${HOME}/.dotnet/tools
-export PATH=$PATH:${HOME}/node_modules/.bin
-# export PATH=$PATH:${HOME}/.nimble/bin
 
 # evals
 eval "$(zoxide init bash)"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
