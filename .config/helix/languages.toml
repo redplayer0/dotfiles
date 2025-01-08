@@ -42,6 +42,11 @@ language-servers = [
   "emmet-ls"
 ]
 
+[[language]]
+name = "yaml"
+auto-format = true
+formatter = { command = "yamlfmt", args = ["-"] }
+
 [language-server.sqls]
 command = "bunx"
 args = [
@@ -64,15 +69,6 @@ roots = ["sln", "csproj"]
 comment-token = "//"
 indent = { tab-width = 4, unit = "\t" }
 language-servers = [ "csharp-ls" ]
-
-# [[language]]
-# name = "julia"
-# roots = []
-
-# [language-server.julia]
-# command = "julia"
-# timeout = 60
-# args = [ "--startup-file=no", "--history-file=no", "--quiet", "-e", "using LanguageServer; runserver()", ] 
 
 # [language.server.jdtls]
 # command = "jdtls"
