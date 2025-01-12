@@ -115,7 +115,7 @@ alias lsblk="lsblk -f"
 alias t2="clear;tree -L 2"
 alias usb="ranger /run/media/red/"
 alias cal="cal --monday"
-alias venv="source bin/activate"
+alias venv="source env/bin/activate"
 alias sb="source ${HOME}/.bashrc"
 
 # programs
