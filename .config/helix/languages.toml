@@ -73,3 +73,34 @@ language-servers = [ "csharp-ls" ]
 # [language.server.jdtls]
 # command = "jdtls"
 # args = ["--startup-file=no"] 
+
+[[language]]
+name = "java"
+scope = "source.java"
+injection-regex = "java"
+file-types = ["java", "jav", "pde"]
+roots = ["pom.xml", "build.gradle", "build.gradle.kts"]
+language-servers = [ "jdtls" ]
+indent = { tab-width = 2, unit = "  " }
+comment-tokens = ["//"]
+block-comment-tokens = { start = "/*", end = "*/" }
+[language-servers.jdtls.initializationOptions]
+bundles = "/usr/share/java-debug/com.microsoft.java.debug.plugin.jar"
+
+
+[language.debugger]
+command = "java"
+name = "java"
+transport = "tcp"
+args = ["-cp", "<your-classpath>", "<your-main-class>"]
+port-arg = '-agentlib:jdwp=transport=dt_socket,server=n,address=127.0.0.1:5005'
+
+[[language.debugger.templates]]
+name = "Debug (Attach) - Remote"
+request = "attach"
+[[language.debugger.templates.completion]]
+name = "binary"
+completion = "filename"
+[language.debugger.templates.args]
+program = "{0}"
+runInTerminal = true

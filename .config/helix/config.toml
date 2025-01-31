@@ -10,6 +10,7 @@ K = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"
 H = "jump_view_left"
 L = "jump_view_right"
 g = { a = "code_action" }
+"ret" = "goto_word"
 
 [keys.normal.space]
 f = ":format"
