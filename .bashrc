@@ -18,7 +18,7 @@ esac
 
 export COLORTERM=truecolor
 export TERM=tmux-256color
-export TERMINAL=ptyxis
+export TERMINAL=alacritty
 export EDITOR=helix
 export VISUAL=helix
 export BROWSER=firefox
@@ -104,6 +104,7 @@ function edit() {
 	$EDITOR $file
 	fi
 }
+
 # aliases
 alias x="startx"
 alias date="date +%Y%m%d%H%M%S"
