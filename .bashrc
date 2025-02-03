@@ -105,38 +105,45 @@ function edit() {
 	fi
 }
 
+# file manager
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # aliases
-alias x="startx"
 alias date="date +%Y%m%d%H%M%S"
 alias c="clear"
 alias ..="cd ./.."
 alias path='echo $PATH | tr ":" "\n" | nl'
-alias xprop="xprop | rg WM_CLASS"
-alias lsblk="lsblk -f"
-alias t2="clear;tree -L 2"
-alias usb="ranger /run/media/red/"
-alias cal="cal --monday"
-alias venv="source env/bin/activate"
+alias venv="source venv/bin/activate"
+alias nvenv="python -m venv venv"
+alias pup="pip install --upgrade pip"
 alias sb="source ${HOME}/.bashrc"
 
 # programs
 alias vce="wine ${HOME}/.wine/drive_c/Program\ Files\ \(x86\)/VCE\ Exam\ Simulator\ Demo/player.exe"
-alias nv="nvim"
-alias r="ranger"
 alias pluto='julia -e "import Pluto;Pluto.run()"'
 alias hx="helix"
 alias o="xdg-open"
 alias feh="feh -d"
-alias dl="yt-dlp -x --audio-format mp3 -o '/home/red/music/%(title)s.%(exts)s'"
+alias dl="yt-dlp -x --audio-format mp3 -o '${HOME}/mus/%(title)s.%(exts)s'"
+alias xprop="xprop | rg WM_CLASS"
+alias cal="cal --monday"
+alias lsblk="lsblk -f"
 
 # quick edits
 alias profile="${EDITOR} ${HOME}/.bash_profile"
 alias bashrc="${EDITOR} ${HOME}/.bashrc"
 alias term="$EDITOR $HOME/.config/alacritty/alacritty.toml"
-alias xinitrc="$EDITOR $HOME/.xinitrc"
-alias rc="ranger $HOME/.config"
-alias sxrc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
-alias bsprc="$EDITOR $HOME/.config/bspwm/bspwmrc"
+# alias xinitrc="$EDITOR $HOME/.xinitrc"
+# alias rc="ranger $HOME/.config"
+# alias sxrc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
+# alias bsprc="$EDITOR $HOME/.config/bspwm/bspwmrc"
 
 # pacman and yay
 # alias pkglist="yay -Qttq > $HOME/.pkglist ; bat -p $HOME/.pkglist"
@@ -170,10 +177,7 @@ alias config_update='config add -u; config commit -m"$(date) update"; config pus
 # rust alternatives
 alias cat="bat -p"
 alias ls="clear;eza -laa --group-directories-first"
-alias f='sk --preview "bat -p {1}" --bind "enter:execute(nvim {1})"'
-alias zz='cd $(sk --preview "ls {1}")'
-
-
+alias f='sk --preview "bat -p {1}" --bind "enter:execute(helix {1})"'
 
 # evals
 eval "$(zoxide init bash)"
