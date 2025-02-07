@@ -98,12 +98,14 @@ ex ()
 
 # edit - edit files in cwd
 function edit() {
-	file=$(config ls-tree -r main --name-only | fzf)
+	file=$(config ls-tree -r main --name-only | sk)
 	if [[ -f $file ]]
 	then
 	$EDITOR $file
 	fi
 }
+# e shortcut for edit
+alias e='edit'
 
 # file manager
 function y() {
@@ -126,6 +128,7 @@ alias pup="pip install --upgrade pip"
 alias sb="source ${HOME}/.bashrc"
 
 # programs
+alias hype="hyprland"
 alias vce="wine ${HOME}/.wine/drive_c/Program\ Files\ \(x86\)/VCE\ Exam\ Simulator\ Demo/player.exe"
 alias pluto='julia -e "import Pluto;Pluto.run()"'
 alias hx="helix"
