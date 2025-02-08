@@ -160,6 +160,7 @@ alias S="sudo pacman -S"
 alias ss="pacman -Ss"
 alias si="pacman -Ss | rg / | awk -F '/' '{print \$2}' | awk '{print \$1}' | sk --preview='pacman -Si {}' --bind 'enter:execute(sudo pacman --noconfirm -S {})'"
 alias rs="sudo pacman -Rs"
+alias pi="interactive_paru"
 
 # git
 alias gls="git ls-files"
