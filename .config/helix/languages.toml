@@ -9,7 +9,8 @@ language-servers = [
 ]
 
 [language-server.rufflsp]
-command = "ruff-lsp"
+command = "ruff"
+args = ["server"]
 
 [language-server.pylsp]
 command = "pylsp"
