@@ -132,6 +132,7 @@ alias hype="hyprland"
 alias vce="wine ${HOME}/.wine/drive_c/Program\ Files\ \(x86\)/VCE\ Exam\ Simulator\ Demo/player.exe"
 alias pluto='julia -e "import Pluto;Pluto.run()"'
 alias hx="helix"
+alias nv="nvim"
 alias o="xdg-open"
 alias feh="feh -d"
 alias dl="yt-dlp -x --audio-format mp3 -o '${HOME}/mus/%(title)s.%(exts)s'"
