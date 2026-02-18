@@ -29,6 +29,8 @@ export BEMENU_OPTS="-i --fixed-height --counter always -p 'run:' -l 12 -c -B 1 -
 
 # export JDTLS_JVM_ARGS="-javaagent:$HOME/code/hackathon/lombok.jar -Xbootclasspath/a:$HOME/code/hackathon/lombok.jar"
 
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
 # dpi
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # export QT_SCREEN_SCALE_FACTORS=2 
@@ -122,7 +124,7 @@ alias date="date +%Y%m%d%H%M%S"
 alias c="clear"
 alias ..="cd ./.."
 alias path='echo $PATH | tr ":" "\n" | nl'
-alias venv="source venv/bin/activate"
+alias venv="source .venv/bin/activate"
 alias nvenv="python -m venv venv"
 alias pup="pip install --upgrade pip"
 alias sb="source ${HOME}/.bashrc"
@@ -186,3 +188,7 @@ alias f='sk --preview "bat -p {1}" --bind "enter:execute(helix {1})"'
 
 # evals
 eval "$(zoxide init bash)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

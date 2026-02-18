@@ -6,7 +6,12 @@ C-s = ":w"
 tab = ":buffer-next"
 S-tab = ":buffer-previous"
 J = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-K = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+K = [
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
+]
 H = "jump_view_left"
 L = "jump_view_right"
 g = { a = "code_action" }
@@ -14,37 +19,34 @@ g = { a = "code_action" }
 
 [keys.normal.space]
 f = ":format"
-o = "file_picker"
-O = "file_picker_in_current_directory"
+O = "file_picker"
+o = "file_picker_in_current_directory"
 x = ":buffer-close"
 c = ":config-open"
 C = ":config-reload"
-# m = ["move_next_word_end", "search_selection"]
 
 [keys.insert.j]
 k = "normal_mode"
 l = "move_char_right"
 h = "move_char_left"
-o = ["normal_mode", "open_below"]
-O = ["normal_mode", "open_above"]
+# o = ["normal_mode", "open_below"]
+# O = ["normal_mode", "open_above"]
 
 [editor]
 bufferline = "always"
 completion-replace = false
 line-number = "relative"
+end-of-line-diagnostics = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
 select = "underline"
 
 [editor.lsp]
-display-messages = true
+display-inlay-hints = true
 
 [editor.smart-tab]
 enable = false
-
-# [editor.whitespace.render]
-# space = "all"
 
 [editor.indent-guides]
 render = true
@@ -58,6 +60,10 @@ min-width = 3
 
 [editor.soft-wrap]
 enable = true
-max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-wrap = 25
 max-indent-retain = 80
-wrap-indicator = ""  # set wrap-indicator to "" to hide it
+wrap-indicator = ""
+
+[editor.inline-diagnostics]
+other-lines = "hint"
+cursor-line = "warning" # show warnings and errors on the cursorline inline

@@ -3,25 +3,19 @@ name = "python"
 auto-format = true
 injection-regex = "python"
 language-servers = [
-  # {name = "rufflsp", only-features = ["code-action", "format"]},
-  "rufflsp",
+  "ruff",
   "pylsp"
 ]
 
-[language-server.rufflsp]
+[language-server.ruff]
 command = "ruff"
 args = ["server"]
 
+[language-server.ruff.config.settings.lint]
+ignore = ["F841"]
+
 [language-server.pylsp]
 command = "pylsp"
-
-[language-server.pylsp.config.pylsp.plugins]
-pylsp_mypy.enabled = true
-pylsp_mypy.live_mode = true
-# pylsp_mypy.overrides = ["--ignore-missing-imports", true]
-# rope_completion.enabled = true
-# rope_autoimport.enabled = true
-# rope_autoimport.code_actions.enabled = false
 
 [language-server.emmet-ls]
 command = "bunx"
@@ -48,6 +42,10 @@ name = "yaml"
 auto-format = true
 formatter = { command = "yamlfmt", args = ["-"] }
 
+[[language]]
+name = "sql"
+language-servers = ["sqls"]
+
 [language-server.sqls]
 command = "bunx"
 args = [
@@ -56,24 +54,6 @@ args = [
   "--method",
   "stdio"
 ]
-
-[[language]]
-name = "sql"
-language-servers = ["sqls"]
-
-[[language]]
-name = "c-sharp"
-scope = "source.csharp"
-injection-regex = "c-?sharp"
-file-types = ["cs", "csx", "cake"]
-roots = ["sln", "csproj"]
-comment-token = "//"
-indent = { tab-width = 4, unit = "\t" }
-language-servers = [ "csharp-ls" ]
-
-# [language.server.jdtls]
-# command = "jdtls"
-# args = ["--startup-file=no"] 
 
 [[language]]
 name = "java"
@@ -85,23 +65,17 @@ language-servers = [ "jdtls" ]
 indent = { tab-width = 2, unit = "  " }
 comment-tokens = ["//"]
 block-comment-tokens = { start = "/*", end = "*/" }
-[language-servers.jdtls.initializationOptions]
-bundles = "/usr/share/java-debug/com.microsoft.java.debug.plugin.jar"
+
+[language-server.jdtls.config]
+bundles = ["/home/red/.sdkman/java-debug-0.53.1/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.1.jar"]
 
 
 [language.debugger]
-command = "java"
-name = "java"
-transport = "tcp"
-args = ["-cp", "<your-classpath>", "<your-main-class>"]
-port-arg = '-agentlib:jdwp=transport=dt_socket,server=n,address=127.0.0.1:5005'
+command = "java-debug"
+name = "jdtls"
+transport = "stdio"
 
 [[language.debugger.templates]]
 name = "Debug (Attach) - Remote"
 request = "attach"
-[[language.debugger.templates.completion]]
-name = "binary"
-completion = "filename"
-[language.debugger.templates.args]
-program = "{0}"
-runInTerminal = true
+args = {hostName = "127.0.0.1", port = "5005"}
