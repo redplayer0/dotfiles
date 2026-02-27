@@ -189,6 +189,6 @@ alias f='sk --preview "bat -p {1}" --bind "enter:execute(helix {1})"'
 # evals
 eval "$(zoxide init bash)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# sdk man init script
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
