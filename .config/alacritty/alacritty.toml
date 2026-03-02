@@ -32,4 +32,4 @@ x = 8
 y = 8
 
 [general]
-import = ["/home/red/.config/alacritty/themes/rose-pine.toml"]
+import = ["/home/red/.config/alacritty/themes/rose-pine-moon.toml"]

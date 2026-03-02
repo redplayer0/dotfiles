@@ -153,6 +153,7 @@ alias term="$EDITOR $HOME/.config/alacritty/alacritty.toml"
 
 # pacman and yay
 # alias pkglist="yay -Qttq > $HOME/.pkglist ; bat -p $HOME/.pkglist"
+alias aurupdate='for d in */; do (cd "$d" && git pull && makepkg -sirc --noconfirm); done'
 alias sy="sudo pacman -Sy"
 alias syu="sudo pacman -Syu && packages"
 alias qg="pacman -Q | grep $1"
